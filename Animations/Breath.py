@@ -2,6 +2,7 @@
 import random
 import math
 import time
+import HSVColor
 
 class Breath:
 
@@ -9,10 +10,10 @@ class Breath:
 
     rate_arr = []
 
-    def __init__(self, pixels_arr):
-        self.pixels_arr = pixels_arr
-        self.rate_arr = [random.uniform(0.1, 5) for _ in pixels_arr]
-        self.offset_arr = [random.uniform(0.0, math.pi) for _ in pixels_arr]
+    def __init__(self, num_of_pixels):
+        self.pixels_arr = [HSVColor.HSVColor() for i in range(0, num_of_pixels)]
+        self.rate_arr = [random.uniform(0.1, 5) for _ in self.pixels_arr]
+        self.offset_arr = [random.uniform(0.0, math.pi) for _ in self.pixels_arr]
 
     def apply(self, t):
 
